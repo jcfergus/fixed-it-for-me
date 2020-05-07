@@ -3,7 +3,7 @@ A repository of things that fixed specific errors _for_ _me_.
 
 ### Issues: 
 
-#### Spurious Error message from bind9 on Ubuntu 18.04.3 [#bind9-ubuntu-18043]
+#### [Spurious Error message from bind9 on Ubuntu 18.04.3](#bind9-ubuntu-18043)
 
 * Error: 
   ```
@@ -18,7 +18,7 @@ A repository of things that fixed specific errors _for_ _me_.
   ```
   *Notes:* I _believe_ this error was harmless, but when something's not working right I like to try to get rid of as many error messages from the log as I can.
 
-#### PomoDoneApp won't run on Ubuntu 20.04 [#pomodone-ubuntu-2004]
+#### [PomoDoneApp won't run on Ubuntu 20.04](#pomodone-ubuntu-2004)
 
 * *Error:*  
   ```jferg@quartz ~/Downloads $ pomodoneapp 
