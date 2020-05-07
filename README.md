@@ -5,6 +5,7 @@ A repository of things that fixed specific errors _for_ _me_.
 
 #### [Spurious Error message from bind9 on Ubuntu 18.04.3](#bind9-ubuntu-18043)
 
+* Date: 2020-02-09
 * Error: 
   ```
   Feb 09 10:15:35 dc named[2913]: managed-keys-zone: Active key unexpectedly missing from .`  
@@ -20,6 +21,7 @@ A repository of things that fixed specific errors _for_ _me_.
 
 #### [PomoDoneApp won't run on Ubuntu 20.04](#pomodone-ubuntu-2004)
 
+* Date: 2020-05-07
 * *Error:*  
   ```jferg@quartz ~/Downloads $ pomodoneapp 
   libtrace3/focal 3.0.21-1ubuntu3 amd64
