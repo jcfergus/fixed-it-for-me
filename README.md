@@ -18,6 +18,8 @@ A repository of things that fixed specific errors _for_ _me_.
   sudo service bind9 restart
   ```
   *Notes:* I _believe_ this error was harmless, but when something's not working right I like to try to get rid of as many error messages from the log as I can.
+  
+* *Tags:* ubuntu, 18.04.3, bionic beaver, named, bind9
 
 #### [PomoDoneApp won't run on Ubuntu 20.04](#pomodone-ubuntu-2004)
 
@@ -44,4 +46,46 @@ A repository of things that fixed specific errors _for_ _me_.
   ```
   *Notes:*
   If you use gnome or KDE or another standard desktop you may want to edit the application descriptor in `/usr/share/applications` to include the LD_LIBRARY_PATH as well.
+  
+* *Tags:* ubuntu, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
+
+#### [Steam Client Exits Immediately on Ubuntu (with no error)](#steam-ubuntu-exits-immediately) 
+
+* Date: 2020-05-10
+* *Error:"
+  ```
+  $ steam 
+  [2020-05-10 10:17:43] Nothing to do
+  [2020-05-10 10:17:43] Verifying installation...
+  [2020-05-10 10:17:43] Performing checksum verification of executable files
+  [2020-05-10 10:17:44] Verification complete
+  STEAM_RUNTIME_HEAVY: ./steam-runtime-heavy
+  $ 
+  ```
+
+  On Ubuntu, the Steam client runs, installs updates, and then immediately exits.  For me, this was an issue with not having DRI3 enabled in Xorg.  To verify that this is your issue, run:
+  ```
+  $ grep "DRI" ~/.steam/root/error.log
+  ``` 
+  
+  If it returns a line that looks something like: 
+  ```
+  Error: No DRI3 support
+  ```
+  then this is probably your problem.   
+  
+  Fixed on Ubuntu 20.04 by editing /etc/X11/xorg.conf to add the line: 
+  ```
+    Option      "DRI" "3"
+  ```
+  to the "Intel Graphics" device section:  
+  ```
+  Section "Device"
+        Identifier  "Intel Graphics" 
+        Driver      "intel"
+        Option      "Backlight"  "intel_backlight"
+        Option      "DRI" "3"
+  EndSection
+  ```
+* *Tags:* steam, ubuntu, 20.04, focal fossa, dri, dri3, crash, immediate exit, intel graphics
 
