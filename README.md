@@ -40,8 +40,8 @@ A repository of things that fixed specific errors _for_ _me_.
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpangoft2-1.0-0_1.42.4-7_amd64.deb
   cd /opt/PomoDoneApp
   sudo dpkg -x libpango-1.0-0_1.42.4-7_amd64.deb .
-  sudo dpkg -x libpangocairo-1.0-0_1.42.4-7_amd64.deb
-  sudo dpkg -x libpangoft2-1.0-0_1.42.4-7_amd64.deb
+  sudo dpkg -x libpangocairo-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x libpangoft2-1.0-0_1.42.4-7_amd64.deb .
   LD_LIBRARY_PATH=/opt/PomoDoneApp/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH ./pomodoneapp
   ```
   *Notes:*
