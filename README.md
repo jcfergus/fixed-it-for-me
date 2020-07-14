@@ -21,6 +21,21 @@ A repository of things that fixed specific errors _for_ _me_.
   
 * *Tags:* ubuntu, 18.04.3, bionic beaver, named, bind9
 
+#### [xsane failed to start scanner: invalid argument](#xsane-invalid-argument) 
+
+* Date: 2020-07-14
+* Error: 
+```
+xsane failed to start scanner: invalid argument
+```
+
+Fixed on ubuntu 20.04 with:
+```bash
+rm -r ~/.sane
+```
+
+* *Tags:* ubuntu, 20.04, xsane, invalid argument
+
 #### [PomoDoneApp won't run on Ubuntu 20.04](#pomodone-ubuntu-2004)
 
 * Date: 2020-05-07
