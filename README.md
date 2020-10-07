@@ -50,13 +50,14 @@ rm -r ~/.sane
   
   Fixed on Ubuntu 20.04 with: 
   ```bash
+  cd /tmp
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpango-1.0-0_1.42.4-7_amd64.deb
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpangocairo-1.0-0_1.42.4-7_amd64.deb
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpangoft2-1.0-0_1.42.4-7_amd64.deb
   cd /opt/PomoDoneApp
-  sudo dpkg -x libpango-1.0-0_1.42.4-7_amd64.deb .
-  sudo dpkg -x libpangocairo-1.0-0_1.42.4-7_amd64.deb .
-  sudo dpkg -x libpangoft2-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x /tmp/libpango-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x /tmp/libpangocairo-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x /tmp/libpangoft2-1.0-0_1.42.4-7_amd64.deb .
   LD_LIBRARY_PATH=/opt/PomoDoneApp/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH ./pomodoneapp
   ```
   *Notes:*
