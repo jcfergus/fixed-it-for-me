@@ -39,16 +39,16 @@ rm -r ~/.sane
 #### [PomoDoneApp won't run on Ubuntu 20.04](#pomodone-ubuntu-2004)
 
 * Date: 2020-05-07
-* *Error:*  
-  ```jferg@quartz ~/Downloads $ pomodoneapp 
+* *Error:*
+  ```jferg@quartz ~/Downloads $ pomodoneapp
   libtrace3/focal 3.0.21-1ubuntu3 amd64
   (pomodoneapp:38254): Pango-ERROR **: 08:34:06.746: Harfbuzz version too old (1.4.2)
   libtracker-control-2.0-dev/focal 2.3.4-1 amd64
   Trace/breakpoint trap (core dumped)
-  jferg@quartz ~/Downloads $ 
+  jferg@quartz ~/Downloads $
   ```
-  
-  Fixed on Ubuntu 20.04 with: 
+
+  Fixed on Ubuntu 20.04 with:
   ```bash
   cd /tmp
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpango-1.0-0_1.42.4-7_amd64.deb
@@ -62,8 +62,13 @@ rm -r ~/.sane
   ```
   *Notes:*
   If you use gnome or KDE or another standard desktop you may want to edit the application descriptor in `/usr/share/applications` to include the LD_LIBRARY_PATH as well.
-  
-* *Tags:* ubuntu, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
+
+  Fixed on fedora 32 with:
+  ```bash
+  sudo dnf downgrade --releasever 30 pango-1.43.0-4.fc30.x86_64
+  ```
+
+* *Tags:* ubuntu, fedora, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
 
 #### [ChromeOS (Brunch) on Dell Laptop - Keyboard stops working on resume from suspend](#chromeos-keyboard-stops-working-after-suspend)
 
@@ -87,13 +92,13 @@ rm -r ~/.sane
 * Date: 2020-05-10
 * *Error:*
   ```
-  $ steam 
+  $ steam
   [2020-05-10 10:17:43] Nothing to do
   [2020-05-10 10:17:43] Verifying installation...
   [2020-05-10 10:17:43] Performing checksum verification of executable files
   [2020-05-10 10:17:44] Verification complete
   STEAM_RUNTIME_HEAVY: ./steam-runtime-heavy
-  $ 
+  $
   ```
 
   On Ubuntu, the Steam client runs, installs updates, and then immediately exits.  For me, this was an issue with not having DRI3 enabled in Xorg.  To verify that this is your issue, run:
