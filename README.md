@@ -50,13 +50,14 @@ rm -r ~/.sane
 
   Fixed on Ubuntu 20.04 with:
   ```bash
+  cd /tmp
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpango-1.0-0_1.42.4-7_amd64.deb
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpangocairo-1.0-0_1.42.4-7_amd64.deb
   wget http://mirrors.kernel.org/ubuntu/pool/main/p/pango1.0/libpangoft2-1.0-0_1.42.4-7_amd64.deb
   cd /opt/PomoDoneApp
-  sudo dpkg -x libpango-1.0-0_1.42.4-7_amd64.deb .
-  sudo dpkg -x libpangocairo-1.0-0_1.42.4-7_amd64.deb .
-  sudo dpkg -x libpangoft2-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x /tmp/libpango-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x /tmp/libpangocairo-1.0-0_1.42.4-7_amd64.deb .
+  sudo dpkg -x /tmp/libpangoft2-1.0-0_1.42.4-7_amd64.deb .
   LD_LIBRARY_PATH=/opt/PomoDoneApp/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH ./pomodoneapp
   ```
   *Notes:*
@@ -69,10 +70,27 @@ rm -r ~/.sane
 
 * *Tags:* ubuntu, fedora, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
 
-#### [Steam Client Exits Immediately on Ubuntu (with no error)](#steam-ubuntu-exits-immediately)
+#### [ChromeOS (Brunch) on Dell Laptop - Keyboard stops working on resume from suspend](#chromeos-keyboard-stops-working-after-suspend)
+
+* Date 2020-12-07
+* No specific error message, but symptom is that the keyboard stops working after resuming from suspend or sleep on a Dell laptop running ChromeOS via [Brunch](https://github.com/sebanc/brunch).  
+
+  *Notes:* Appears to be caused by an issue in the i8042 keyboard driver.
+  
+  To fix, you will need to press Ctrl-Alt-F2 to enter the Linux console.  (This will still work even though the keyboard is not responding in the GUI.)  Then:
+  1. Log in with the username `chronos`.
+  2. Type `/usr/sbin/edit-grub-config` at the commandline.  
+  3. Edit the grub configuration to append a space and then `i8042.reset=1` to the line that starts with `linux`. 
+  4. Press Ctrl-O to save, Ctrl-X to quit.
+  5. Press Ctrl-Alt-F1 to return to the GUI, use the mouse to navigate to the menu, and shut down the laptop.  
+  6. Power it back on and you should be set.  
+
+* *Tags:* chromeos, brunch, dell, keyboard, i8042, suspend, sleep, stops working
+
+#### [Steam Client Exits Immediately on Ubuntu (with no error)](#steam-ubuntu-exits-immediately) 
 
 * Date: 2020-05-10
-* *Error:"
+* *Error:*
   ```
   $ steam
   [2020-05-10 10:17:43] Nothing to do
