@@ -63,6 +63,25 @@ rm -r ~/.sane
   *Notes:*
   If you use gnome or KDE or another standard desktop you may want to edit the application descriptor in `/usr/share/applications` to include the LD_LIBRARY_PATH as well.
 
+
+  Fixed on fedora 32 with:
+  ```bash
+  sudo dnf downgrade --releasever 30 pango-1.43.0-4.fc30.x86_64
+  ```
+
+* *Tags:* ubuntu, fedora, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
+
+#### [PomoDoneApp won't run on Parrot OS ](#pomodone-debian-2004)
+
+* Date: 2021-01-05
+* *Error:*
+  ```himel@b1ack_c0de ~/Downloads $ pomodoneapp
+  libtrace3/focal 3.0.21-1ubuntu3 amd64
+  (pomodoneapp:38254): Pango-ERROR **: 08:34:06.746: Harfbuzz version too old (1.4.2)
+  libtracker-control-2.0-dev/focal 2.3.4-1 amd64
+  Trace/breakpoint trap (core dumped)
+  himel@b1ack_c0de ~/Downloads $
+
   Fixed on Debian 10(Parrot os)  with:
   ```bash
   sudo dpkg -i libpango-1.0-0_1.42.4-8_deb10u1_amd64.deb
@@ -78,12 +97,8 @@ rm -r ~/.sane
   You may get downgrade warning. If you are using other Architecture then goto https://packages.debian.org/buster/gir1.2-pango-1.0 then find out the required packages. 
 
 
-  Fixed on fedora 32 with:
-  ```bash
-  sudo dnf downgrade --releasever 30 pango-1.43.0-4.fc30.x86_64
-  ```
 
-* *Tags:* ubuntu, fedora, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
+* *Tags:* parrot, debian 10, buster, pango, pomodone, pomodoneapp, harfbuzz
 
 #### [ChromeOS (Brunch) on Dell Laptop - Keyboard stops working on resume from suspend](#chromeos-keyboard-stops-working-after-suspend)
 
