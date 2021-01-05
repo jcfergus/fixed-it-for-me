@@ -75,13 +75,14 @@ rm -r ~/.sane
 
 * Date: 2021-01-05
 * *Error:*
-  ```himel@b1ack_c0de ~/Downloads $ pomodoneapp
+  ```bash
+  himel@b1ack_c0de ~/Downloads $ pomodoneapp
   libtrace3/focal 3.0.21-1ubuntu3 amd64
   (pomodoneapp:38254): Pango-ERROR **: 08:34:06.746: Harfbuzz version too old (1.4.2)
   libtracker-control-2.0-dev/focal 2.3.4-1 amd64
   Trace/breakpoint trap (core dumped)
   himel@b1ack_c0de ~/Downloads $
-
+  ```
   Fixed on Debian 10(Parrot os)  with:
   ```bash
   sudo dpkg -i libpango-1.0-0_1.42.4-8_deb10u1_amd64.deb
