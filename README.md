@@ -94,7 +94,24 @@ rm -r ~/.sane
   ```
 
   *Notes:*
-  You may get downgrade warning. If you are using other Architecture then goto https://packages.debian.org/buster/gir1.2-pango-1.0 then find out the required packages. 
+  You may get downgrade warning. Don't update those packages. To prevent their update you not to follow this steps:
+  ```bash
+  $ apt list --upgradable 
+  Listing... Done
+  libpango-1.0-0/rolling,rolling 1.46.2-3 amd64 [upgradable from: 1.42.4-8~deb10u1]
+  libpangocairo-1.0-0/rolling,rolling 1.46.2-3 amd64 [upgradable from: 1.42.4-8~deb10u1]
+  libpangoft2-1.0-0/rolling,rolling 1.46.2-3 amd64 [upgradable from: 1.42.4-8~deb10u1]
+
+  $ sudo apt-mark hold libpango-1.0-0:amd64 libpangocairo-1.0-0:amd64 libpangoft2-1.0-0:amd64
+  libpango-1.0-0 set on hold.
+  libpangocairo-1.0-0 set on hold.
+  libpangoft2-1.0-0 set on hold.
+  ```
+  You can unhold any time by using 
+  ```bash
+  udo apt-mark unhold package_name
+  ```
+  If you are using other Architecture then goto https://packages.debian.org/buster/gir1.2-pango-1.0 then find out the required packages. 
 
 
 
