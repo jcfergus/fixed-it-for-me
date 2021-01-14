@@ -70,6 +70,7 @@ rm -r ~/.sane
   ```
 
 * *Tags:* ubuntu, fedora, 20.04, focal fossa, pango, pomodone, pomodoneapp, harfbuzz
+* *With contributions from*: [Marcin Maruszewski](https://github.com/marcinmaruszewski), [damani42](https://github.com/damani42), [Carl-Erik Kopseng](https://github.com/fatso83) 
 
 #### [PomoDoneApp won't run on Parrot OS ](#pomodone-debian-2004)
 
@@ -114,9 +115,8 @@ rm -r ~/.sane
   ```
   If you are using other Architecture then goto https://packages.debian.org/buster/gir1.2-pango-1.0 then find out the required packages. 
 
-
-
 * *Tags:* parrot, debian 10, buster, pango, pomodone, pomodoneapp, harfbuzz
+* *Contributed by*: [Habibu-R-ahman](https://github.com/Habibu-R-ahman)
 
 #### [ChromeOS (Brunch) on Dell Laptop - Keyboard stops working on resume from suspend](#chromeos-keyboard-stops-working-after-suspend)
 
