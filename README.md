@@ -135,6 +135,31 @@ rm -r ~/.sane
 
 * *Tags:* chromeos, brunch, dell, keyboard, i8042, suspend, sleep, stops working
 
+#### [Raspbian `apt-get update` gives error (actually a warning) about "Repository ... changed its 'Suite'"](#raspbian-changed-suite)
+
+* Date: 2021-12-18
+* *Error:*
+  ```
+  pi@octopi:~ $ sudo apt-get update
+  Hit:1 http://raspbian.raspberrypi.org/raspbian buster InRelease
+  Get:2 http://archive.raspberrypi.org/debian buster InRelease [32.6 kB]
+  Reading package lists... Done
+  E: Repository 'http://archive.raspberrypi.org/debian buster InRelease' changed its 'Suite' value from 'testing' to 'oldstable'
+  N: This must be accepted explicitly before updates for this repository can be applied. See apt-secure(8) manpage for details.
+  $
+  ```
+  
+  It _is_ just a warning, and shouldn't stop things from working, but it's annoying.  Since the `apt-secure(8)` manpage is nigh on useless as far as actually
+  resolving the issue, the following command will take care of it:
+  
+  ```
+  sudo apt-get --allow-releaseinfo-change update
+  ```
+  
+  Thanks to `/u/beer118` for this reddit post where I found this solution: https://www.reddit.com/r/debian/comments/ca3se6/for_people_who_gets_this_error_inrelease_changed/
+  
+* *Tags:* raspbian, buster, suite, apt-get, update, apt-secure
+
 #### [Steam Client Exits Immediately on Ubuntu (with no error)](#steam-ubuntu-exits-immediately) 
 
 * Date: 2020-05-10
