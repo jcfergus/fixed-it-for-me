@@ -160,6 +160,39 @@ rm -r ~/.sane
   
 * *Tags:* raspbian, buster, suite, apt-get, update, apt-secure
 
+#### [Google Meet on Android Refuses to use Bluetooth Headset](#google-meet-android-bluetooth)
+
+* Date: 2022-01-10
+* *Error:* Google Meet on Android will not send audio to Bluetooth, despite having Bluetooth selected as the audio device within Meet. 
+
+  I'm putting this here because I was unable to turn up this answer with a fair amount of searching.  To fix this issue, all you need to do is re-pair the Bluetooth device, making sure to select "Share contacts with this device." in the pairing dialog.  (I don't usually check that box for $REASONS.)  I don't understand exactly why, but this has fixed the issue for me on two separate Bluetooth devices (headset and vehicle audio).  
+  
+* *Tags:* bluetooth, google meet, android, pairing
+
+#### [Terraform Fails to Update Managed Certificate for lb_http-created Load Balancer](#terraform-lb_http-certificate-update-failed)
+
+* Date: 2022-01-12
+* *Error:* 
+  ```
+  Error when reading or editing ManagedSslCertificate: googleapi: Error 400: The ssl_certificate resource ...  is already being used by ... , resourceInUseByAnotherResource`
+  ```
+  
+  This came up while trying to update a Google Cloud Load Balancer created using the [lb-http](https://github.com/terraform-google-modules/terraform-google-lb-http) module to add another hostname to the load balancer.  Searching turns up several instances of people having the problem but I couldn't find a succinct answer to it anywhere using the `lb-http` module.  (The documentation alludes to it but you have to know what you're looking for.)  It's actually a pretty simple fix: 
+  
+  1. Make sure you're using version 6.0.1 or better of the `lb-http` module.
+  ```
+    version = "~> 6.1"
+  ```
+  2. Set `random_certificate_suffix` on the module inputs:
+  ```
+    random_certificate_suffix = true
+  ```
+
+  This will trigger a creation of a new certificate with a random suffix instead of trying to replace the existing certificate!
+  
+* *Tags:* terraform, google cloud, gcp, lb-http, managedsslcertificate, ssl_certificate, resourceinusebyanotherresource
+  
+
 #### [Steam Client Exits Immediately on Ubuntu (with no error)](#steam-ubuntu-exits-immediately) 
 
 * Date: 2020-05-10
